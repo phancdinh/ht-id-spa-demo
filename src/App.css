@@ -36,8 +36,8 @@
 }
 
 .home-container {
-    text-align: center;
-    padding: 20px 30px;
+    text-align: right;
+    /*padding: 20px 30px;*/
 }
 
 .token-request-block,
@@ -77,15 +77,36 @@
 
 html body {
     height: 100%;
-    background-image: url("img/tong_quan.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    width: 100%;
+    background-image: url("img/bg2.png");
+    background-size: cover;
 }
-.logo {
+.btn-wrapper {
+    margin-top: 3px;
+}
+
+.topen-car {
     position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url("img/logo.png");
+    right: 0;
+    bottom: 0;
+    /*background: white;*/
+    width: 400px;
+    height: 200px;
+}
+.topen-car .car {
+    width: 150px;
+    height: 150px;
+    background: url("img/car.png");
+    background-size: cover;
+    display: inline-block;
+}
+.main-contain {
+    margin-top: 330px;
+}
+.item-ht {
+    height: 250px;
+    text-align: center;
+}
+.item-ht img {
     width: 200px;
-    height: 156px;
 }

@@ -2,21 +2,22 @@ import axios from "axios";
 import { CONFIG } from "../config";
 
 export async function generateToken() {
-    try {
-        const token = btoa(`${CONFIG.APIM_ID}:${CONFIG.APIM_SECRET}`);
-
-        const { data } = await axios.post(`${CONFIG.APIM_URL}/token`, "grant_type=client_credentials", {
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/x-www-form-urlencoded",
-                Authorization: `Basic ${token}`,
-            },
-        });
-
-        return data.access_token;
-    } catch (error) {
-        console.log("generateToken error", error);
-    }
+    // try {
+    //     const token = btoa(`${CONFIG.APIM_ID}:${CONFIG.APIM_SECRET}`);
+    //
+    //     const { data } = await axios.post(`${CONFIG.APIM_URL}/token`, "grant_type=client_credentials", {
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/x-www-form-urlencoded",
+    //             Authorization: `Basic ${token}`,
+    //         },
+    //     });
+    //
+    //     return data.access_token;
+    // } catch (error) {
+    //     console.log("generateToken error", error);
+    // }
+    return null;
 }
 
 export async function fetchUserProfile(ht_id, accessToken, apimAccesstoken) {

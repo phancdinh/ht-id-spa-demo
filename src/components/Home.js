@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import ReactJson from "react-json-view";
 import { sendAuthorizationRequest, sendTokenRequest } from "../actions/sign-in";
 import { dispatchLogout } from "../actions/sign-out";
+import { CAR_CONFIG, CONFIG } from "../config";
 import {
     isValidSession,
     getAllSessionParameters,
@@ -107,36 +108,94 @@ export default function Home() {
         dispatchLogout();
     }
 
+    const carUrl = `${CONFIG.AUTHORIZE_ENDPOINT}?response_type=${CONFIG.RESPONSE_TYPE}&scope=${CONFIG.SCOPE}&redirect_uri=${CAR_CONFIG.REDIRECT_URI}&client_id=${CAR_CONFIG.CLIENT_ID}`;
+
     return (
         <div className="home-container">
-            <div className="logo"></div>
+            {/*<div className="logo"></div>*/}
             {/*<h1 className="ht-id">Hồ Tràm Complex</h1>*/}
-            <br />
             {state.isLoggedIn ? (
                 <>
-                    <br />
-                    <h2 className={"welcome"}>Chúc mừng đăng nhập thành công</h2>
-                    <br />
+                    <div className="profile-menu">
+                        {profile && (
+                            <span className="">
+                                <span>{profile.full_name}, </span>
+                                <span>HungThinh Id của bạn là {profile.ht_id} </span>
+                                {/*<a href={carUrl} className="text-white" target="_blank">Go to car</a>*/}
+                            </span>
+                        )}
+                        <a href={"javascript:void()"} onClick={handleLogoutBtnClick}>
+                            Đăng Xuất
+                        </a>
+                        <div className="topen-car text-center">
+                            <h3>Bạn muốn mua ô tô?</h3>
+                            <a href={carUrl} className="text-white car" target="_blank" title="topen-car"></a>
+                        </div>
+                    </div>
                     {profile && (
-                        <>
-                            <h2>Xin chào, {profile.full_name}</h2>
-                            <h3>HungThinh Id của bạn là {profile.ht_id}</h3>
-                            <br />
-                        </>
+                        <div className="container main-contain">
+                            <div className="row">
+                                <div className="col-4 mb-5 item-ht">
+                                    <a href="#">
+                                        <img
+                                            className="img-fluid"
+                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+                                        />
+                                    </a>
+                                    <div className="text-center pt-4">
+                                        <h5>Hồ tràm complex</h5>
+                                        <p>
+                                            <span className="mr-1">
+                                                <strong>Chỉ từ 2 tỷ</strong>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-4 mb-5 item-ht">
+                                    <a href="#">
+                                        <img
+                                            className="img-fluid"
+                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+                                        />
+                                    </a>
+                                    <div className="text-center pt-4">
+                                        <h5>New Galaxy</h5>
+                                        <p>
+                                            <span className="mr-1">
+                                                <strong>Chỉ từ 2,2 tỷ</strong>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-4 mb-5 item-ht">
+                                    <a href="#">
+                                        <img
+                                            className="img-fluid"
+                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+                                        />
+                                    </a>
+                                    <div className="text-center pt-4">
+                                        <h5>Biệt thự ven sông</h5>
+                                        <p>
+                                            <span className="mr-1">
+                                                <strong>Chỉ từ 20tỷ</strong>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     )}
-                    <button className="btn btn-danger" onClick={handleLogoutBtnClick}>
-                        Đăng Xuất
-                    </button>
                 </>
             ) : (
-                <>
+                <div className="btn-wrapper">
                     <button className="btn btn-primary float-right" onClick={handleLoginBtnClick}>
                         Đăng Nhập
                     </button>
                     <button className="btn btn-primary float-right mr-2" onClick={handleSignUpBtnClick}>
                         Đăng Ký
                     </button>
-                </>
+                </div>
             )}
         </div>
     );

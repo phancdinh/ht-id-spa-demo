@@ -32,3 +32,9 @@ export const CONFIG = {
     // consumer secret of API subscription on devportal
     APIM_SECRET: "NFZvypAiDQWkBrVjbNScKD8OM1wa",
 };
+
+export const CAR_CONFIG = {
+    REDIRECT_URI: "https://localhost:8000",
+    CLIENT_ID: "djJZinXs_OeJ9j5R7ETec4KFLGMa",
+    CLIENT_SECRET: "pWVTzZStieMoLBfRFFqLMUhzhEIa",
+};
