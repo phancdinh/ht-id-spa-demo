@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import ReactJson from "react-json-view";
 import { sendAuthorizationRequest, sendTokenRequest } from "../actions/sign-in";
 import { dispatchLogout } from "../actions/sign-out";
 import { CAR_CONFIG, CONFIG } from "../config";
@@ -12,6 +11,9 @@ import {
 } from "../actions/session";
 import getPKCE from "../actions/pkce";
 import { fetchUserProfile as fetchUserProfileApi, generateToken } from "../actions/profile";
+import hotram from "../img/ho-tram.jpg";
+import lavitacharm from "../img/lavita.jpg";
+import universe from "../img/universe.jpg";
 
 export default function Home() {
     const pkcePair = useRef(getPKCE());
@@ -114,85 +116,67 @@ export default function Home() {
         <div className="home-container">
             {state.isLoggedIn ? (
                 <>
-                    <div className="profile-menu">
-                        {profile && (
-                            <span className="">
-                                <span>{profile.full_name}, </span>
-                                <span>HungThinh Id của bạn là {profile.ht_id} </span>
-                                {/*<a href={carUrl} className="text-white" target="_blank">Go to car</a>*/}
-                            </span>
-                        )}
-                        <a href={"javascript:void()"} onClick={handleLogoutBtnClick}>
-                            Đăng Xuất
-                        </a>
-                        <div className="topen-car text-center">
-                            <h3>{profile.full_name} đã đủ điều kiện mua ô tô ưu đãi.</h3>
-                            <a href={carUrl} className="text-white car" target="_blank" title="topen-car"></a>
+                    <div className="profile-menu d-flex ">
+                        <div>{profile && <span>{profile.full_name}</span>}</div>
+                        <div>
+                            <img src="" alt="" />
+                        </div>
+                        <div>
+                            <a href={"javascript:void()"} onClick={handleLogoutBtnClick}>
+                                Đăng Xuất
+                            </a>
                         </div>
                     </div>
-                    {profile && (
-                        <div className="container main-contain">
-                            <div className="row">
-                                <div className="col-4 mb-5 item-ht">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
-                                        />
-                                    </a>
-                                    <div className="text-center pt-4">
-                                        <h5>Hồ tràm complex</h5>
-                                        <p>
-                                            <span className="mr-1">
-                                                <strong>Chỉ từ 2 tỷ</strong>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-4 mb-5 item-ht">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
-                                        />
-                                    </a>
-                                    <div className="text-center pt-4">
-                                        <h5>New Galaxy</h5>
-                                        <p>
-                                            <span className="mr-1">
-                                                <strong>Chỉ từ 2,2 tỷ</strong>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-4 mb-5 item-ht">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
-                                        />
-                                    </a>
-                                    <div className="text-center pt-4">
-                                        <h5>Biệt thự ven sông</h5>
-                                        <p>
-                                            <span className="mr-1">
-                                                <strong>Chỉ từ 20tỷ</strong>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                 </>
             ) : (
-                <div className="btn-wrapper">
-                    <button className="btn btn-primary float-right" onClick={handleLoginBtnClick}>
-                        Đăng Nhập
-                    </button>
-                    <button className="btn btn-primary float-right mr-2" onClick={handleSignUpBtnClick}>
-                        Đăng Ký
-                    </button>
+                <>
+                    <div className="btn-wrapper">
+                        <button
+                            className="btn-common float-right login"
+                            onClick={handleLoginBtnClick}
+                        ></button>
+                        <button
+                            className="btn-common float-right mr-4 sign-up"
+                            onClick={handleSignUpBtnClick}
+                        ></button>
+                    </div>
+                    <br />
+                </>
+            )}
+            <div className="container main-contain">
+                <div className="row">
+                    <div className="col-4 mb-5 item-ht">
+                        <div>
+                            <div className="img-wrap">
+                                <a href="#">
+                                    <img className="img-fluid" src={lavitacharm} />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-4 mb-5 item-ht">
+                        <div>
+                            <div className="img-wrap">
+                                <a href="#">
+                                    <img className="img-fluid" src={hotram} />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-4 mb-5 item-ht">
+                        <div>
+                            <div className="img-wrap">
+                                <a href="#">
+                                    <img className="img-fluid" src={universe} />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {state.isLoggedIn && (
+                <div className="topen-car text-center">
+                    <a href={carUrl} className="text-white car" target="_blank" title="topen-car"></a>
                 </div>
             )}
         </div>

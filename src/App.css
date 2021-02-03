@@ -78,36 +78,80 @@
 html body {
     height: 100%;
     width: 100%;
-    background-image: url("img/bg2.png");
+    background-image: url("./img/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .btn-wrapper {
-    margin-top: 3px;
+    margin-top: 30px;
+    margin-right: 120px;
 }
 
 .topen-car {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    /*background: white;*/
-    width: 400px;
-    height: 200px;
+    margin: 1rem auto;
+    width: 1457px;
+    height: 229px;
 }
+
 .topen-car .car {
-    width: 150px;
-    height: 150px;
-    background: url("img/car.png");
+    width: 100%;
+    height: 100%;
+    background: url("img/banner.jpg");
     background-size: cover;
     display: inline-block;
 }
+
 .main-contain {
-    margin-top: 330px;
+    margin-top: 120px;
 }
+
 .item-ht {
-    height: 250px;
-    text-align: center;
+    /*min-height: 300px;*/
+    /*text-align: center;*/
+    /*padding: 2rem;*/
+    /*background: rgba(255, 255, 255, 0.4);*/
+    /*color: white;*/
 }
-.item-ht img {
-    width: 200px;
+
+.item-ht > div {
+}
+
+.item-ht .img-wrap {
+    height: 416px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.btn-common {
+    border: 0;
+}
+
+button.login {
+    background: url("./img/dang-nhap.jpg");
+    width: 201px;
+    height: 61px;
+}
+
+button.sign-up {
+    background: url("./img/dang-ky.jpg");
+    width: 201px;
+    height: 61px;
+}
+.profile-menu {
+    color: #db5b07;
+    font-weight: bold;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    right: 0;
+    width: 600px;
+    height: 120px;
+}
+.profile-menu a {
+    color: #db5b07;
 }
