@@ -34,7 +34,7 @@ export const CONFIG = {
 };
 
 export const CAR_CONFIG = {
-    REDIRECT_URI: "https://localhost:8000",
+    REDIRECT_URI: "https://topen-car.herokuapp.com",
     CLIENT_ID: "djJZinXs_OeJ9j5R7ETec4KFLGMa",
     CLIENT_SECRET: "pWVTzZStieMoLBfRFFqLMUhzhEIa",
 };

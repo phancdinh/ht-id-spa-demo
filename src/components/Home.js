@@ -112,8 +112,6 @@ export default function Home() {
 
     return (
         <div className="home-container">
-            {/*<div className="logo"></div>*/}
-            {/*<h1 className="ht-id">Hồ Tràm Complex</h1>*/}
             {state.isLoggedIn ? (
                 <>
                     <div className="profile-menu">
@@ -128,7 +126,7 @@ export default function Home() {
                             Đăng Xuất
                         </a>
                         <div className="topen-car text-center">
-                            <h3>Bạn muốn mua ô tô?</h3>
+                            <h3>{profile.full_name} đã đủ điều kiện mua ô tô ưu đãi.</h3>
                             <a href={carUrl} className="text-white car" target="_blank" title="topen-car"></a>
                         </div>
                     </div>
