@@ -18,6 +18,7 @@ import icon1 from "../img/icon1.png";
 import icon2 from "../img/icon2.png";
 import icon3 from "../img/icon3.png";
 import icon4 from "../img/icon4.png";
+import AuthenUser from "./AuthenUser";
 
 export default function Home() {
     const pkcePair = useRef(getPKCE());
@@ -113,51 +114,14 @@ export default function Home() {
     function handleLogoutBtnClick() {
         dispatchLogout();
     }
-
-    function getIconFromHtId(htId) {
-        if (!htId) return icon1;
-
-        const num = htId % 4;
-
-        switch (num) {
-            case 0:
-                return icon1;
-            case 1:
-                return icon2;
-            case 2:
-                return icon3;
-            case 3:
-                return icon4;
-            default:
-                return icon1;
-        }
-    }
+    const authenUser = AuthenUser(profile, handleLogoutBtnClick);
 
     const carUrl = `${CONFIG.AUTHORIZE_ENDPOINT}?response_type=${CONFIG.RESPONSE_TYPE}&scope=${CONFIG.SCOPE}&redirect_uri=${CAR_CONFIG.REDIRECT_URI}&client_id=${CAR_CONFIG.CLIENT_ID}`;
 
     return (
         <div className="home-container">
             {state.isLoggedIn ? (
-                <>
-                    <div className="profile-menu d-flex ">
-                        <div>
-                            {profile && (
-                                <span>
-                                    Xin chào,
-                                    <span className="font-weight-bold">{profile.full_name}</span>
-                                </span>
-                            )}
-                        </div>
-                        <div className="ml-2">
-                            <img src={getIconFromHtId(profile.ht_id)} alt="" />
-                        </div>
-                        <div className="ml-2">
-                            <a href={"javascript:void()"} onClick={handleLogoutBtnClick}>
-                                Đăng Xuất
-                            </a>
-                        </div>
-                    </div>
-                </>
+                <>{authenUser}</>
             ) : (
                 <>
                     <div className="btn-wrapper">
@@ -208,4 +172,23 @@ export default function Home() {
             )}
         </div>
     );
+}
+
+function getIconFromHtId(htId) {
+    if (!htId) return icon1;
+
+    const num = htId % 4;
+
+    switch (num) {
+        case 0:
+            return icon1;
+        case 1:
+            return icon2;
+        case 2:
+            return icon3;
+        case 3:
+            return icon4;
+        default:
+            return icon1;
+    }
 }
