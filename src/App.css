@@ -102,8 +102,9 @@ html body {
     display: inline-block;
 }
 
-.main-contain {
+.main-content {
     margin-top: 150px;
+    z-index: 5;
 }
 
 .item-ht {
@@ -154,6 +155,7 @@ button.sign-up {
     width: 600px;
     height: 108px;
     align-items: center;
+    z-index: 10;
 }
 .profile-menu a {
     color: #db5b07;

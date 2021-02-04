@@ -134,7 +134,7 @@ export default function Home() {
                     <br />
                 </>
             )}
-            <div className="container main-contain">
+            <div className="container main-content">
                 <div className="row">
                     <div className="col-4 mb-5 item-ht">
                         <div>
