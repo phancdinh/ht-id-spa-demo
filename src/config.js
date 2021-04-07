@@ -12,7 +12,7 @@ export const CONFIG = {
     RESPONSE_TYPE: "code",
     SCOPE: "openid profile phone",
 
-    REDIRECT_URI: "https://topen-land.herokuapp.com",
+    REDIRECT_URI: "https://topen-land.azurewebsites.net",
 
     // id of 'Demo - SPA' Service Provider
     CLIENT_ID: "zdORF98685rRNiCuMUz_k_1ff70a",
@@ -34,7 +34,7 @@ export const CONFIG = {
 };
 
 export const CAR_CONFIG = {
-    REDIRECT_URI: "https://topen-car.herokuapp.com",
+    REDIRECT_URI: "https://topen-car.azurewebsites.net",
     CLIENT_ID: "djJZinXs_OeJ9j5R7ETec4KFLGMa",
     CLIENT_SECRET: "pWVTzZStieMoLBfRFFqLMUhzhEIa",
 };
