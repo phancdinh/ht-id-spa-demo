@@ -25,15 +25,12 @@ export async function fetchUserProfile(ht_id, accessToken, apimAccesstoken) {
         return;
     }
     try {
-        const { data: profile } = await axios.get(
-            `https://app-profile-dev.hungthinhcorp.com.vn/get-basic-info`,
-            {
-                params: {
-                    ht_id,
-                    token: accessToken,
-                },
+        const { data: profile } = await axios.get(`https://profile-dev.hungthinhcorp.com.vn/get-basic-info`, {
+            params: {
+                ht_id,
+                token: accessToken,
             },
-        );
+        });
         return profile;
     } catch (error) {
         console.log(error);
