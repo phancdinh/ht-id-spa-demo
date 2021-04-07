@@ -1,7 +1,7 @@
-module.exports = {
-    apps: [
-        {
-            script: "npx serve -s",
-        },
-    ],
-};
+// module.exports = {
+//     apps: [
+//         {
+//             script: "npx serve -s",
+//         },
+//     ],
+// };
