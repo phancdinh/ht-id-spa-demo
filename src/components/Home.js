@@ -108,12 +108,13 @@ export default function Home() {
     }
 
     function handleSignUpBtnClick() {
-        window.open("https://app-profile-dev.hungthinhcorp.com.vn/account/register", "_blank");
+        window.open(CONFIG.REGISTER_URL, "_blank");
     }
 
     function handleLogoutBtnClick() {
         dispatchLogout();
     }
+
     const authenUser = AuthenUser(profile, handleLogoutBtnClick);
 
     const carUrl = `${CONFIG.AUTHORIZE_ENDPOINT}?response_type=${CONFIG.RESPONSE_TYPE}&scope=${CONFIG.SCOPE}&redirect_uri=${CAR_CONFIG.REDIRECT_URI}&client_id=${CAR_CONFIG.CLIENT_ID}`;
