@@ -11,7 +11,7 @@ export const CONFIG = {
     LOGOUT_URL: `${HOST}/oidc/logout`,
     RESPONSE_TYPE: "code",
     SCOPE: "openid profile phone",
-    REDIRECT_URI: "https://ht-id-spa-demo.herokuapp.com",
+    REDIRECT_URI: "https://ht-id-spa-demo-staging.herokuapp.com",
 
     // id of 'Demo - SPA' Service Provider
     CLIENT_ID: "C7Uj0Civ7kH6S85tEzbKxttBj_oa",
