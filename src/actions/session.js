@@ -17,6 +17,7 @@
  */
 
 import { getCookie, removeCookie, setCookie } from "../helpers/cookies";
+import jwt_decode from "jwt-decode";
 
 /**
  * Initialize authenticated user session.\
@@ -88,7 +89,8 @@ export const getAllSessionParameters = () => {
  * @return {any}
  */
 export const decodeIdToken = (token) => {
-    return JSON.parse(atob(token.split(".")[1]));
+    // return JSON.parse(atob(token.split(".")[1]));
+    return jwt_decode(token);
 };
 
 export const setCodeVerifier = (codeVerifier) => {
