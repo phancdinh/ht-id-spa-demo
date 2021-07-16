@@ -26,11 +26,10 @@ export async function fetchUserProfile(username, accessToken, apimAccesstoken) {
 
     try {
         const { data: profile } = await axios.get(
-            `${CONFIG.APIM_URL}/user-profile-dev/1.0.0/api/profiles/${username}`,
+            `${CONFIG.APIM_URL}/api/profiles/v1.0.0/info/${username}/basic-info`,
             {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
-                    "X-HT-APIM-Authorization": `Bearer ${apimAccesstoken}`,
                 },
             },
         );

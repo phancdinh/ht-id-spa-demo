@@ -88,8 +88,7 @@ export default function Home() {
     }
 
     async function fetchUserProfile(username, accessToken) {
-        const apimAccessToken = await generateToken();
-        const profile = await fetchUserProfileApi(username, accessToken, apimAccessToken);
+        const profile = await fetchUserProfileApi(username, accessToken, null);
         if (profile) {
             setProfile(profile);
         }
